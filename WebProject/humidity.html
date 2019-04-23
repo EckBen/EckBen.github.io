@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Humidity Analysis</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html">Latitude</a>
+
+        <a id="btn-comp" class="btn btn-light" href="comparison.html">Comparison</a>
+        <a id="btn-data" class="btn btn-light" href="data.html">Data</a>
+
+        <div id="btn-plot" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Plots
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="temperature.html">Temperature</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="humidity.html">Humidity</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="windspeed.html">Wind Speed</a>
+            </div>
+        </div>
+
+        <button class="navbar-toggler navtog" type="button">
+            <span class="navbar-toggler-icon" onclick="openNav()"></span>
+        </button>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" id="clsbtn" class="closebtn" onclick="closeNav()">&times;</a>
+            <ul id="items" class="nav nav-pills nav-fill">
+                <li class="nav-item dropdown dropright">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="temperature.html">Temperature</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="humidity.html">Humidity</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="windspeed.html">Wind Speed</a>
+                    </div>
+                </li>
+                <div class="dropdown-divider"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="comparison.html">Comparison</a>
+                </li>                
+                <div class="dropdown-divider"></div>
+                <li class="nav-item">
+                    <a class="nav-link" href="data.html">Data</a>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("clsbtn").style.display = "block";
+                document.getElementById("items").style.display = "block";
+            }
+            
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("clsbtn").style.display = "none";
+                document.getElementById("items").style.display = "none";
+            }
+        </script>
+        
+    </nav>
+    
+    <!-- Content to be changed between pages -->
+    <div class="container-fluid">
+        <div class="row"><div class="col-12"><p><br><br></p></div></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div id="summary" class="col-md-6">
+                <h1>Humidity Analysis</h1>
+                <img id="sum-img" class="img-fluid" src="Resources/assets/images/humidity.png" alt="Scatter plot of Humidity versus latitude.">
+                <p>On the day that our data was pulled, there appeared to be no correlation between latitude and humidity. After looking at this scatter plot for some time, however, a pattern did emerge. There appear to be clusters of data points in a pattern very similar to that found in the <a href="temperature.html">temperature versus latitude analysis.</a> Due to the cap of 100% humidity, the curve is flattened where the peak might have formed, but the cluster of data points decreasing from 100% to roughly 60% humidity between 35 and 65 degrees latitude show that there may be a pattern there. Further analysis spanning multiple days of measurements would help to solidify this hypothesis.</p>
+            </div>
+            <div class="col-12 col-md-1"></div>
+            <div class="col-md-3">
+                <div id="vis" class="row">
+                    <div class="col-12">
+                    <h2 align=center>Visualizations</h2>
+                    <div class="row">
+                        <div class="col-3 col-md-6 viscol">    
+                            <a href="temperature.html"><img class="plot img-fluid" src="Resources/assets/images/temperature.png" alt="Temperature versus latitude scatter plot."></a>
+                        </div>
+                        <div class="col-3 col-md-6 viscol">
+                            <a href="windspeed.html"><img class="plot img-fluid" src="Resources/assets/images/windspeed.png" alt="Wind speed versus latitude scatter plot."></a>
+                        </div>
+                        <div class="col-3 col-md-6 viscol">
+                            <a href="humidity.html"><img id="active-img" class="plot img-fluid" src="Resources/assets/images/humidity.png" alt="Humidity versus latitude scatter plot."></a>
+                        </div>
+                        <div class="col-3 col-md-6 viscol">
+                            <a href="cloudiness.html"><img class="plot img-fluid" src="Resources/assets/images/cloudiness.png" alt="cloudiness versus latitude scatter plot."></a>
+                    </div></div>
+                </div>
+                <div class="row"><div class="col-12"></div></div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row"><div class="col-12"><p><br><br><br><br><br><br></p></div></div>
+    </div>
+
+    <!-- Footer, keep for all pages -->
+    <div>
+        <p id="footer">Creator: Ben Eck</p>
+    </div>
+</body>
+</html>
