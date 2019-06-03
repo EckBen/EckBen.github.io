@@ -1,0 +1,2 @@
+# Weather v Latitude Webpage
+The purpose of this dashboard is to display the results of the analysis performed in Weather v Latitude (https://github.com/EckBen/Weather-v-Latitude). It is created using Bootstrap to ensure responsiveness, and it contains written summaries and visualizations of each analysis. To access the deployed page visit: https://eckben.github.io/WebProject/
